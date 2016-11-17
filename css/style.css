@@ -1,0 +1,382 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    padding: 0;
+    margin: -65px 0 0 0;
+    background-color: #333;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans', sans-serif;
+}
+
+p{
+    margin: 0;
+}
+
+.home{
+    position: relative;
+    z-index: 1;
+    height: 690px;
+    background: url(../images/fondotigresrayados.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+
+.home:after{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+
+    content: '';
+    background-image: -webkit-linear-gradient(90deg,rgba(17,17,17,.95),rgba(17,17,17,.6) 30%,rgba(17,17,17,.4));
+    background-image:linear-gradient(90deg,rgba(17,17,17,.95),rgba(17,17,17,.6) 30%,rgba(17,17,17,.4));
+}
+
+.home .welcome{
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.home h1{
+    font-family: 'Open Sans';
+    font-size: 72px;
+    font-weight: 400;
+    color: blue;
+    font-style: bold;
+}
+
+.home h2{
+    font-family: 'Open Sans';
+    font-size: 30px;
+    font-weight: 800;
+    font-style: bold italic;
+    color: #1d7ab7;
+}
+
+.home .button .Submit{
+    display: inline-block;
+}
+    
+
+.home .logo{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 150px;
+    width: 150px;
+}
+
+.home .logo2{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 150px;
+    width: 150px;
+}
+
+.home2{
+    position: relative;
+    z-index: 1;
+    height: 250px;
+
+    background: url(../images/fondotigresrayados.jpg) no-repeat center center;
+    -webkit-background-size: 1400px 200px;
+       -moz-background-size: 1400px 200px;
+         -o-background-size: 1400px 200px;
+            background-size: 1400px 200px;
+
+}
+
+.home2:after{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    background-image: -webkit-linear-gradient(90deg,rgba(17,17,17,.95),rgba(17,17,17,.6) 10%,rgba(17,17,17,.4));
+    background-image:linear-gradient(90deg,rgba(17,17,17,.95),rgba(17,17,17,.6) 10%,rgba(17,17,17,.4));
+}
+
+.home2 h1{
+    font-size: 75px;
+    font-weight: 200;
+
+    position: relative;
+
+    text-align: center;
+    color: blue;
+    font-style: bold;
+}
+
+.home2 h2{
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-weight: 200;
+    font-style: bold italic;
+    color: #1d7ab7;
+}
+
+.home2 .logo{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 150px;
+    width: 150px;
+}
+
+.home2 .logo2{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 150px;
+    width: 150px;
+}
+
+.button{
+    font-family: 'Open Sans';
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 10px;
+
+    cursor: pointer;
+
+    color: black;
+    border: 0;
+}
+
+.Submit{
+    background: #2e71b2;
+}
+
+.Submit:hover{
+    background: #f0ff00;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #222;
+    height: 47px;
+}
+
+li {
+    float: left;
+    border: 1px solid white;
+}
+
+li a {
+    display: block;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #878787;
+}
+
+table, th, td {
+   border: 1px solid black;
+   align-items: center;
+}
+
+th, td{
+    padding: 6px;
+    text-align: center;
+}
+
+.tableProducts img{
+    width: 170px;
+    height: 350px;
+}
+
+footer
+{
+
+    margin-bottom: 0;
+    padding: 20px 10px;
+
+    color: white blue;
+    background: #222;
+}
+
+footer p
+{
+    text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 100px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #111;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #333;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+.modal .form {
+    width: 60%;
+}
+
+.login-buttons
+{
+    display: inline-block;
+    float: right;
+    
+    width: 30%;
+
+    margin-top: 30px;
+}
+
+.login-buttons .button:hover{
+    background-color: #444;
+    color: white;
+}
+
+#goRegister{
+    font-style: none;
+    color: black;
+}
+
+.login-buttons .button{
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #111;
+    color: white;
+    padding: 13px 20px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    cursor:pointer;
+    border-radius: 8px;
+}
+
+.modal .form {
+    width: 60%;
+}
+
+
+.form
+{
+    display: inline-block;
+    width: 48%;
+}
+
+.form-group
+{
+    margin: 10px 0;
+    padding-left: 40px;
+}
+
+.form-group label:first-child
+{
+    display: block;
+
+    margin-bottom: 2px;
+}
+textarea{
+    width: 500px;
+    height: 50px;
+    padding: 5px;
+    font-family: 'Raleway';
+    border: 3px solid green;
+    resize: none;
+}
+.hidden {
+    display: none;
+}
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ZonaGol</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<!-- ______FACEBOOK______-->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<!-- ____________________ -->
+	<div class="home2">
+		<img class="logo" src="images/logo.jpg" alt="ZonaGol">
+		<img class="logo2" src="images/logo.jpg" alt="ZonaGol">
+		<div class="welcome">
+			<h1 align="center">ZonaGol</h1>
+			<h2 align="center">Para fans de corazón</h2>
+		</div>	
+	</div>
+	<div>
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li><a class="active" href="products.html">Productos</a></li>
+			<!--<li><a href="wishcart.html">Carrito de compras</a></li>-->
+			<li><a href="contactus.html">Contacto</a></li>
+			<li id="logged-in" class="hidden" style="float:right">
+				<span class="logged-in" style="float:right ">Sesión de: <i id="userInfo"></i></span><a href="#" id="logout-btn" class="login-btn">Logout</a>
+			</li>
+			<li style="float:right" id="loginbuttonli"><a href="" id="loginbutton" >Login</a></li>
+			<li style="float:right" class="hidden" id="productsdeletebuttonli"><a href="" id="productsdeletebutton">Eliminar</a></li>
+			<li style="float:right" class="hidden" id="productsbuttonli"><a href="" id="productsbutton">Agregar</a></li>
+		</ul>
+	</div>
+
+	<!-- Aqui se realiza la busqueda ya sea por nombre o por categoria -->
+	<h3>Buscar</h3> 
+    <button id="porNombre">Por Nombre </button><button id="porCategoria">Por Categoría</button>
+	    <form  method="post" id="searchform" class="hidden">
+	    	<h4>Busqueda por Nombre</h4>
+	      	<input  type="text" name="name" id="txtnameB"> 
+	      	<input  type="submit" name="submit" value="Buscar" id="buttonBuscador"> 
+	      	<input  type="submit" name="limpiar" value="limpiarBusqueda" id="buttonLimpiar" class="hidden">
+	    </form>
+	    <form  method="post" id="searchformcat" class="hidden"> 
+		    <h4>Busqueda por Categoria</h4>
+		    <input  type="text" name="nameCat" id="txtnameBCat"> 
+		    <input  type="submit" name="submit" value="Buscar" id="buttonBuscadorCat"> 
+		    <input  type="submit" name="limpiar" value="limpiarBusqueda" id="buttonLimpiarCat" class="hidden">
+	    </form>
+
+
+	<!-- Despliega los Productos que estan en la Base de Datos-->
+	<div id="divProductos" class="hidden">
+		<h2 align="center">Productos</h2>
+		<h3 id="initialProductMessage" align="center">No hay productos</h3>
+		<div class="product-item">
+			<table align="center" width="50%" cellspacing="4" cellpadding="0" class="tableProducts" id="products-display">
+				<tr>
+					<td style="display:none" class="producto2"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- Despliega los Productos 'CON LA BUSQUEDA' que estan en la Base de Datos-->
+	<div id="divProductosB" class="hidden">
+		<h2 align="center">Busqueda</h2>
+		<h3 id="initialProductMessageB" align="center">No hay Busqueda</h3>
+		<div class="product-item">
+			<table align="center" width="50%" cellspacing="4" cellpadding="0" class="tableProductsB" id="products-displayB">
+				<tr>
+					<td style="display:none" class="producto2B"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<!--Modal for add products-->
+	<div id="modalProducts" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">x</span>
+				<h2 class="modalTitulo">Agrega Producto</h2>
+			</div>
+			<div class="modal-body">
+				<br>
+				<form action="data/validaFoto.php" id="formulario" method="POST" enctype="multipart/form-data">
+		            <center><table border="1">
+			            <tr bgcolor="gray">        
+			                <td><strong>Nombre:</strong></td><td> <input type="text" name="txtnom" id="txtnom2" value=""></td>
+			            </tr>
+			            <tr bgcolor="gray">        
+			                <td><strong>Categoría:</strong></td><td> <input type="text" name="txtcategoria" id="txtnom3" value=""></td>
+			            </tr>
+			            <tr bgcolor="gray">
+			            	<td bgcolor="gray"><strong>Foto:</strong></td>  <td><input type="file" name="foto" id="foto"></td>
+			            </tr>
+			            <tr>
+			            	<td colspan="2" align="center" bgcolor="gray"><input type="submit" name="enviar" value="Enviar" id="probutton"></td>
+			            </tr>
+		            </center></table>
+		        </form>
+		        <br>
+				<p id="productError" class="error"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal for delete products-->
+	<div id="modalDeleteProducts" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">x</span>
+				<h2 class="modalTitulo">Elimina Producto</h2>
+			</div>
+			<div class="modal-body">
+				<br>
+				<form action="data/eliminaFoto.php" id="formularioDelete" method="POST" enctype="multipart/form-data">
+		            <center><table border="1">
+		            <tr bgcolor="gray">
+		            	<td bgcolor="gray"><strong>Foto:</strong></td>  <td><input type="file" name="foto" id="foto"></td>
+		            </tr>
+		            <tr>
+		            	<td colspan="2" align="center" bgcolor="gray"><input type="submit" name="enviar" value="Enviar" id="probuttonDelete"></td>
+		            </tr>
+		            </center></table>
+		        </form>
+		        <br>
+				<p id="productErrorDelete" class="error"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal for login-->
+	<div id="modalLogin" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+			<span class="close">x</span>
+			<h2 class="modalTitulo">Login</h2>
+			</div>
+			<div class="modal-body">
+				<br>
+				<div class="form">
+					<div class="form-group">
+						<label for="emailLoginModal">Email</label>
+						<input type="email" id="emailLoginModal">
+					</div>
+					<div class="form-group">
+						<label for="passwordLoginModal">Password</label>
+						<input type="password" id="passwordLoginModal">
+					</div>
+					<div class="form-group">
+						<label>Remember credentials?</label>
+						<input type="checkbox" id="rememberLoginModal">
+						<label for="rememberLoginModal">YES</label>
+					</div>
+				</div>
+				<div class="login-buttons">
+					<span class="button Submit" id="loginBtn">Login</span>
+					<p><a href="" id="goRegister">Register here</a></p>
+				</div>
+				<br>
+				<p id="loginError" class="error"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal for register-->
+	<div id="modalRegistration" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+			<span class="close">x</span>
+			<h2 class="modalTitulo">Registration</h2>
+			</div>
+			<div class="modal-body">
+				<br>
+				<div class="form">
+					<div class="form-group">
+						<label for="fnameRegisterModal">First Name</label>
+						<input type="email" id="fnameRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="lnameRegisterModal">Last Name</label>
+						<input type="email" id="lnameRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="emailRegisterModal">Email</label>
+						<input type="email" id="emailRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="passwordRegisterModal">Password</label>
+						<input type="password" id="passwordRegisterModal">
+					</div>
+				</div>
+				<div class="login-buttons">
+					<span class="button Submit" id="registerBtn">Register</span>
+					<p><a href="" id="goLogin">Login here</a></p>
+				</div>
+				<br>
+				<p id="registerError" class="error"></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- FACEBOOK PLUGIN-->
+	<div class="fb-like" data-href="https://www.facebook.com/ZonaGolMonterrey" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+	<!-- ________ -->
+	
+	<footer><p id="footer"></div></footer>
+	
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>

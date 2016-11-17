@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ZonaGol</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="home2">
+		<img class="logo" src="images/logo.jpg" alt="ZonaGol">
+		<img class="logo2" src="images/logo.jpg" alt="ZonaGol">
+		<div class="welcome">
+			<h1 align="center">ZonaGol</h1>
+			<h2 align="center">Para fans de corazón</h2>
+		</div>	
+	</div>
+	<div>
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li><a href="products.html">Productos</a></li>
+			<li><a href="wishcart.html" class="active">Carrito de compras</a></li>
+			<li><a href="contactus.html">Contacto</a></li>
+			<li id="logged-in" class="hidden" style="float:right">
+				<span class="logged-in" style="float:right ">Sesión de: <i id="userInfo"></i></span><a href="#" id="logout-btn" class="login-btn">Logout</a>
+			</li>
+			<li style="float:right" id="loginbuttonli"><a href="" id="loginbutton" >Login</a></li>
+		</ul>
+	</div>
+
+	<!--Modal for login-->
+	<div id="modalLogin" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+			<span class="close">x</span>
+			<h2 class="modalTitulo">Login</h2>
+			</div>
+			<div class="modal-body">
+				<div class="form">
+					<div class="form-group">
+						<label for="emailLoginModal">Email</label>
+						<input type="email" id="emailLoginModal">
+					</div>
+					<div class="form-group">
+						<label for="passwordLoginModal">Password</label>
+						<input type="password" id="passwordLoginModal">
+					</div>
+					<div class="form-group">
+						<label>Remember credentials?</label>
+						<input type="checkbox" id="rememberLoginModal">
+						<label for="rememberLoginModal">YES</label>
+					</div>
+				</div>
+				<div class="login-buttons">
+					<span class="button Submit" id="loginBtn">Login</span>
+					<p><a href="" id="goRegister">Register here</a></p>
+				</div>
+				<p id="loginError" class="error"></p>
+			</div>
+		</div>
+	</div>
+	<!--Modal for register-->
+	<div id="modalRegistration" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+			<span class="close">x</span>
+			<h2 class="modalTitulo">Registration</h2>
+			</div>
+			<div class="modal-body">
+				<div class="form">
+					<div class="form-group">
+						<label for="fnameRegisterModal">First Name</label>
+						<input type="email" id="fnameRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="lnameRegisterModal">Last Name</label>
+						<input type="email" id="lnameRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="emailRegisterModal">Email</label>
+						<input type="email" id="emailRegisterModal">
+					</div>
+					<div class="form-group">
+						<label for="passwordRegisterModal">Password</label>
+						<input type="password" id="passwordRegisterModal">
+					</div>
+				</div>
+				<div class="login-buttons">
+					<span class="button Submit" id="registerBtn">Register</span>
+					<p><a href="" id="goLogin">Login here</a></p>
+				</div>
+				<p id="registerError" class="error"></p>
+			</div>
+		</div>
+	</div>
+	
+	<footer><p id="footer"></div></footer>
+	
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+
+	
+
+</body>
+</html>
